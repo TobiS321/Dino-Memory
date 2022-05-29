@@ -75,8 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkForMatch() {
-        cardsChosen = []
-        cardsChosenId = []
         var cards = document.querySelectorAll('img')
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
@@ -91,6 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Kein Treffer')
             
         }
+        cardsChosen = []
+        cardsChosenId = []
     
         resultDisplay.textContent = cardsWon.length
         if (cardsWon.length === cardArray.length/2) {
