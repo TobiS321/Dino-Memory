@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const resultDisplay = document.querySelector('#result')
-    const cardsChosen = []
-    const cardsChosenId = []
+    var cardsChosen = []
+    var cardsChosenId = []
     var cardsWon = []
     const cardArray = [
         {
@@ -67,29 +67,31 @@ document.addEventListener('DOMContentLoaded', () => {
     function createBoard() {
         for (let i = 0; i < cardArray.length; i++) {
             var card = document.createElement('img')
-            card.setAttribute('src', 'image/background2.jpg')
+            card.setAttribute('src', 'image/background.jpg')
             card.setAttribute('data-id', i)
-           // card.addEventListener('click', flipcard)
+            card.addEventListener('click', flipcard)
             grid.appendChild(card)
         }
     }
 
     function checkForMatch() {
+        cardsChosen = []
+        cardsChosenId = []
         var cards = document.querySelectorAll('img')
         const optionOneId = cardsChosenId[0]
         const optionTwoId = cardsChosenId[1]
         if (cardsChosen[0] === cardsChosen[1]) {
             alert('paar gefunden')
-            cards[optionOneId].setAttribute('src', 'images/white.jpg')
-            cards[optionTwoId].setAttribute('src', 'images/white.jpg')
+            cards[optionOneId].setAttribute('src', 'image/white.jpg')
+            cards[optionTwoId].setAttribute('src', 'image/white.jpg')
             cardsWon.push(cardsChosen)
         }else {
-            cards[optionOneId].setAttribute('src', 'images/background2.jpg')
-            cards[optionTwoId].setAttribute('src', 'images/background2.jpg')
+            cards[optionOneId].setAttribute('src', 'image/background.jpg')
+            cards[optionTwoId].setAttribute('src', 'image/background.jpg')
             alert('Kein Treffer')
+            
         }
-        cardsChosen = []
-        cardsChosenId = []
+    
         resultDisplay.textContent = cardsWon.length
         if (cardsWon.length === cardArray.length/2) {
             resultDisplay.textContent = 'Glückwunsch geschafft!!'
