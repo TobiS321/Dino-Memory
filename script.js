@@ -66,11 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createBoard() {
         for (let i = 0; i < cardArray.length; i++) {
+            var div = document.createElement('div')
             var card = document.createElement('img')
             card.setAttribute('src', 'image/background.jpg')
             card.setAttribute('data-id', i)
             card.addEventListener('click', flipcard)
-            grid.appendChild(card)
+            grid.appendChild(div)
         }
     }
 
